@@ -47,7 +47,7 @@
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 
-        .fade-in-section { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; will-change: opacity, visibility; }
+        .fade-in-section { transform: translateY(30px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; will-change: opacity, visibility; }
         .fade-in-section.is-visible { opacity: 1; transform: none; }
         #modal { backdrop-filter: blur(5px); }
 
@@ -208,3 +208,4 @@
         <div class="relative bg-[#0a1410] border border-gold/30 rounded-2xl w-full max-w-md p-6 md:p-8 shadow-2xl transform scale-95 transition-transform duration-300" id="modal-content">
             <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors"><i class="fa-solid fa-xmark text-2xl"></i></button>
             <h3 class="text-xl md:text-2xl font-bold text-center mb-2 se
+
