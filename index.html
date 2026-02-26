@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@18.2.1/build/css/intlTelInput.css">
 
     <style>
-        /* Оновлений, трохи світліший фон */
+        /* Світліший, благородний фон */
         body { font-family: 'Inter', sans-serif; background-color: #0f1613; color: #e5e7eb; overflow-x: hidden; padding-bottom: 80px; }
         h1, h2, h3, h4, .serif-font { font-family: 'Playfair Display', serif; }
         
@@ -34,8 +34,8 @@
         @keyframes pulse-gold { 0%, 100% { box-shadow: 0 0 0 0 rgba(212, 175, 122, 0.4); } 70% { box-shadow: 0 0 0 15px rgba(212, 175, 122, 0); } }
         .animate-pulse-gold { animation: pulse-gold 2.5s infinite; }
 
-        /* Оверлей адаптований під новий фон */
-        .hero-overlay { background: linear-gradient(180deg, rgba(15,22,19,0.5) 0%, rgba(15,22,19,0.85) 70%, rgba(15,22,19,1) 100%); }
+        /* Оверлей: зверху прозорий (щоб видно обличчя), знизу темний (для тексту) */
+        .hero-overlay { background: linear-gradient(180deg, rgba(15,22,19,0.1) 0%, rgba(15,22,19,0.7) 50%, rgba(15,22,19,1) 100%); }
 
         .glow-card { background-color: rgba(255, 255, 255, 0.03); border: 1px solid rgba(212, 175, 122, 0.15); border-radius: 0.75rem; transition: all 0.3s ease; }
         .glow-card:hover { background-color: rgba(255, 255, 255, 0.06); border-color: rgba(212, 175, 122, 0.4); transform: translateY(-5px); box-shadow: 0 10px 30px -10px rgba(212, 175, 122, 0.1); }
@@ -50,6 +50,9 @@
         .fade-in-section { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; will-change: opacity, visibility; }
         .fade-in-section.is-visible { opacity: 1; transform: none; }
         #modal { backdrop-filter: blur(5px); }
+
+        /* Фікс висоти екрану для мобільних */
+        .h-svh-custom { min-height: 100vh; min-height: 100svh; }
     </style>
 </head>
 <body class="no-scrollbar selection:bg-gold selection:text-black md:pb-0">
@@ -57,35 +60,40 @@
     <!-- ПЛАВАЮЩАЯ КНОПКА ДЛЯ МОБИЛОК -->
     <div class="md:hidden fixed bottom-4 left-4 right-4 z-[60]">
         <button onclick="openModal()" class="btn-gold animate-pulse-gold w-full py-4 rounded-full flex items-center justify-center shadow-[0_10px_30px_rgba(0,0,0,0.8)] border border-gold/40">
-            <span class="text-[12px] sm:text-[14px] tracking-wide whitespace-nowrap uppercase font-bold text-center block w-full px-1">
+            <span class="text-[13px] tracking-wide whitespace-nowrap uppercase font-bold text-center block w-full px-1">
                 Зареєструватися безкоштовно
             </span>
         </button>
     </div>
 
-    <!-- HERO -->
-    <header class="relative min-h-[90vh] flex items-center justify-center pt-10 pb-16 overflow-hidden bg-[#0f1613]">
+    <!-- БЛОК 1: HERO (ЗМІНЕНО ПОЗИЦІЮВАННЯ ТЕКСТУ) -->
+    <header class="relative h-svh-custom flex flex-col items-center justify-end md:justify-center pb-24 md:pb-16 pt-20 overflow-hidden bg-[#0f1613]">
         <div class="absolute inset-0 z-0">
-            <!-- Нове фото -->
-            <img src="IMG_0941.JPG" alt="Анастасія Унгурян" class="w-full h-full object-cover object-top opacity-40 mix-blend-luminosity">
+            <!-- Зображення вирівняне по верху, щоб обличчя не зрізалось -->
+            <img src="IMG_0941.JPG" alt="Анастасія Унгурян" class="w-full h-full object-cover object-top opacity-50 mix-blend-luminosity">
             <div class="absolute inset-0 hero-overlay"></div>
         </div>
 
+        <!-- Контент притиснутий до низу на мобілці завдяки justify-end -->
         <div class="container mx-auto px-5 z-10 text-center relative max-w-4xl fade-in-section is-visible">
             <div class="inline-block border border-gold text-gold rounded-full px-4 py-1.5 text-xs md:text-sm font-medium tracking-wide mb-6 uppercase">
                 Безкоштовний онлайн-ефір
             </div>
-            <h1 class="text-[2.5rem] md:text-5xl lg:text-7xl font-bold mb-6 text-white serif-font leading-tight">
+            
+            <!-- Заголовок трохи зменшено на мобілці, щоб не забирав весь екран -->
+            <h1 class="text-4xl md:text-5xl lg:text-7xl font-bold mb-4 md:mb-6 text-white serif-font leading-tight drop-shadow-lg">
                 Чому ти боїшся <br> <span class="text-gold italic">самореалізуватися?</span>
             </h1>
-            <p class="text-base md:text-xl text-gray-300 mb-8 max-w-2xl mx-auto font-light leading-relaxed">
-                Страхи, які керують твоїм життям і як їх нарешті побачити. <br>
+            
+            <p class="text-base md:text-xl text-gray-300 mb-6 max-w-2xl mx-auto font-light leading-relaxed drop-shadow-md">
+                Страхи, які керують твоїм життям і як їх нарешті побачити. <br class="hidden md:block">
                 Навіть якщо ти розумна, сильна і талановита — твій мозок може саботувати тебе прямо зараз.
             </p>
-            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-6 mb-10">
-                <div class="flex items-center gap-3 text-white"><i class="fa-regular fa-calendar text-gold text-xl"></i><span class="text-lg font-medium">3 березня</span></div>
+            
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-3 md:gap-6 mb-8 md:mb-10">
+                <div class="flex items-center gap-3 text-white"><i class="fa-regular fa-calendar text-gold text-xl"></i><span class="text-lg font-medium drop-shadow-md">3 березня</span></div>
                 <div class="hidden sm:block w-1.5 h-1.5 rounded-full bg-gold"></div>
-                <div class="flex items-center gap-3 text-white"><i class="fa-regular fa-clock text-gold text-xl"></i><span class="text-lg font-medium">17:00 по Києву</span></div>
+                <div class="flex items-center gap-3 text-white"><i class="fa-regular fa-clock text-gold text-xl"></i><span class="text-lg font-medium drop-shadow-md">17:00 по Києву</span></div>
             </div>
             
             <button onclick="openModal()" class="hidden md:inline-block btn-gold animate-pulse-gold w-full sm:w-auto px-10 py-4 rounded-full text-lg font-bold uppercase tracking-wider">
@@ -124,4 +132,79 @@
                 <div class="w-full h-px bg-gradient-to-r from-transparent via-gold/20 to-transparent"></div>
                 <div class="flex flex-col md:flex-row gap-4 md:gap-6 items-start fade-in-section"><div class="text-4xl md:text-5xl font-bold text-gold/20 serif-font leading-none">02</div><div><h3 class="text-xl md:text-2xl font-semibold mb-2 text-white">5 блоків, які зупиняють тебе</h3><p class="text-gray-400 text-base md:text-lg">Конкретні внутрішні програми, через які жінки не реалізуються.</p></div></div>
                 <div class="w-full h-px bg-gradient-to-r from-transparent via-gold/20 to-transparent"></div>
-                <div class="flex flex-col md:flex-row gap-4 md:gap-6 items-start fade-in-section"><div class="text-4xl md:text-5xl font-bold text-gold/20 serif-font leading-none">03</div><div><h3 class="text-xl md:text-2xl font-semibold mb-2 text-white">Грошові переконання</h3><p class="text-gray-400 text-base md:text-lg">Чому голова хоче більше заробляти, а підсвідомість блоку
+                <div class="flex flex-col md:flex-row gap-4 md:gap-6 items-start fade-in-section"><div class="text-4xl md:text-5xl font-bold text-gold/20 serif-font leading-none">03</div><div><h3 class="text-xl md:text-2xl font-semibold mb-2 text-white">Грошові переконання</h3><p class="text-gray-400 text-base md:text-lg">Чому голова хоче більше заробляти, а підсвідомість блокує. Які установки тримають тебе в тому ж фінансовому рівні роками.</p></div></div>
+                <div class="w-full h-px bg-gradient-to-r from-transparent via-gold/20 to-transparent"></div>
+                <div class="flex flex-col md:flex-row gap-4 md:gap-6 items-start fade-in-section"><div class="text-4xl md:text-5xl font-bold text-gold/20 serif-font leading-none">04</div><div><h3 class="text-xl md:text-2xl font-semibold mb-2 text-white">Що з цим робити</h3><p class="text-gray-400 text-base md:text-lg">Конкретні кроки, як поєднати роботу з мисленням і реальні дії без вигорання.</p></div></div>
+            </div>
+            
+            <div class="text-center hidden md:block fade-in-section"><button onclick="openModal()" class="btn-gold px-12 py-4 rounded-full text-lg font-bold uppercase tracking-wider">Хочу на ефір</button></div>
+        </div>
+    </section>
+
+    <!-- БЛОК 4: ІСТОРІЯ / СПІКЕР -->
+    <section class="py-16 md:py-24 bg-[#0f1613]">
+        <div class="container mx-auto px-5 max-w-4xl">
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-12 md:mb-16 serif-font text-gold fade-in-section">My Story</h2>
+            
+            <!-- Секція "ДО" -->
+            <div class="mb-12 fade-in-section">
+                <div class="grid grid-cols-2 gap-3 md:gap-6 mb-6">
+                    <img src="do1.jpg" alt="До 1" class="w-full h-full object-cover rounded-xl md:rounded-2xl aspect-[3/4] grayscale">
+                    <img src="do2.jpg" alt="До 2" class="w-full h-full object-cover rounded-xl md:rounded-2xl aspect-[3/4] grayscale">
+                </div>
+                
+                <h3 class="text-2xl md:text-3xl font-bold mb-4 serif-font text-gold">ДО: Втрата себе</h3>
+                <p class="text-gray-300 text-base md:text-lg font-light leading-relaxed">
+                    Привіт, мене звати Анастасія Унгурян. До 25 років я не знала, ким хочу бути. Декрет, післяпологова депресія. Сварки з чоловіком, шлюб на межі розлучення. Я відчувала себе нереалізованою.
+                </p>
+                
+                <div class="mt-6 pl-4 border-l-2 border-gold/50 bg-gold/5 p-4 rounded-r-lg">
+                    <p class="text-white font-medium italic text-sm md:text-base">
+                        «Я знаю зсередини, що таке жити з переконанням "я не варта". Брендові речі, машина, бізнес з чоловіком — а всередині все одно: "зі мною щось не так"».
+                    </p>
+                </div>
+            </div>
+
+            <!-- Секція "ПІСЛЯ" -->
+            <div class="mb-10 fade-in-section">
+                <div class="grid grid-cols-2 gap-3 md:gap-6 mb-6">
+                    <img src="after1.jpg" alt="Після 1" class="w-full h-full object-cover rounded-xl md:rounded-2xl aspect-[3/4]">
+                    <img src="after2.jpg" alt="Після 2" class="w-full h-full object-cover rounded-xl md:rounded-2xl aspect-[3/4]">
+                </div>
+                
+                <h3 class="text-2xl md:text-3xl font-bold mb-4 serif-font text-gold">ЗАРАЗ: Реалізація</h3>
+                <p class="text-gray-300 text-base md:text-lg font-light leading-relaxed">
+                    Жінка, яка збудувала сильний особистий бренд. Через мої проекти пройшло 40,000+ жінок. Займаюсь улюбленою справою та втілюю проекти, маю гармонійні стосунки в сім'ї, впевнена та наповнена енергією.
+                </p>
+            </div>
+
+            <!-- Висновок -->
+            <div class="text-center p-6 md:p-8 border border-white/10 rounded-2xl bg-white/5 fade-in-section">
+                <p class="text-lg md:text-xl text-white font-light leading-relaxed">
+                    Як тільки я почала працювати з внутрішніми сценаріями і страхами — моє життя змінилося кардинально. Тепер я передаю цей досвід іншим.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- БЛОК 5: БОНУС -->
+    <section class="py-16 md:py-24 relative bg-gradient-to-t from-[#0f1613] to-[#141d19]">
+        <div class="container mx-auto px-5 max-w-4xl text-center fade-in-section">
+            <div class="inline-flex items-center justify-center w-16 h-16 md:w-20 md:h-20 rounded-full bg-gold/10 mb-6"><i class="fa-solid fa-gift text-3xl md:text-4xl text-gold"></i></div>
+            <h2 class="text-3xl md:text-5xl font-bold mb-4 md:mb-6 serif-font">Всі учасниці отримають <span class="text-gold italic">бонус</span></h2>
+            <p class="text-lg md:text-2xl text-gray-200 mb-8 font-light">Практика <strong class="text-white font-semibold">«Виявлення блоків проявлення»</strong> — безкоштовно для всіх, хто буде на ефірі до кінця.</p>
+            <div class="bg-red-900/20 border border-red-500/30 text-red-200 py-3 px-4 md:px-6 rounded-lg inline-block mb-10 text-xs md:text-sm">
+                <i class="fa-solid fa-circle-exclamation mr-2"></i>Запису не буде. Бонус — тільки для живих учасниць.
+            </div>
+            <div class="hidden md:block"><button onclick="openModal()" class="btn-gold animate-pulse-gold px-12 py-5 rounded-full text-xl font-bold uppercase tracking-wider">Хочу на ефір</button></div>
+        </div>
+    </section>
+
+    <footer class="border-t border-white/5 py-8 text-center text-gray-500 text-sm pb-10 md:pb-8"><p>© 2024 Анастасія Унгурян. Всі права захищені.</p></footer>
+
+    <!-- МОДАЛКА -->
+    <div id="modal" class="fixed inset-0 z-[100] hidden items-center justify-center p-4 opacity-0 transition-opacity duration-300 bg-black/80">
+        <div class="relative bg-[#0a1410] border border-gold/30 rounded-2xl w-full max-w-md p-6 md:p-8 shadow-2xl transform scale-95 transition-transform duration-300" id="modal-content">
+            <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors"><i class="fa-solid fa-xmark text-2xl"></i></button>
+            <h3 class="text-xl md:text-2xl font-bold text-center mb-2 se
