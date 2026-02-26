@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="uk" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Чому ти боїшся самореалізуватися? | Безкоштовний ефір</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@18.2.1/build/css/intlTelInput.css">
+
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #050a08; color: #e5e7eb; overflow-x: hidden; }
+        h1, h2, h3, h4, .serif-font { font-family: 'Playfair Display', serif; }
+        .text-gold { color: #d4af7a; }
+        .border-gold { border-color: #d4af7a; }
+        .bg-gold { background-color: #d4af7a; }
+
+        .btn-gold {
+            background: linear-gradient(180deg, #d4af7a 0%, #b08d55 100%);
+            color: #000;
+            box-shadow: 0 4px 20px rgba(212, 175, 122, 0.25);
+            transition: all 0.3s ease;
+        }
+        .btn-gold:hover { opacity: 0.95; box-shadow: 0 4px 30px rgba(212, 175, 122, 0.4); transform: translateY(-2px); }
+        .btn-gold:active { transform: scale(0.98); }
+
+        @keyframes pulse-gold {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(212, 175, 122, 0.4); }
+            70% { box-shadow: 0 0 0 15px rgba(212, 175, 122, 0); }
+        }
+        .animate-pulse-gold { animation: pulse-gold 2.5s infinite; }
+
+        .hero-overlay { background: linear-gradient(180deg, rgba(5,10,8,0.4) 0%, rgba(5,10,8,0.8) 60%, rgba(5,10,8,1) 100%); }
+
+        .glow-card {
+            background-color: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(212, 175, 122, 0.15);
+            border-radius: 0.75rem;
+            transition: all 0.3s ease;
+        }
+        .glow-card:hover {
+            background-color: rgba(255, 255, 255, 0.05);
+            border-color: rgba(212, 175, 122, 0.4);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px -10px rgba(212, 175, 122, 0.1);
+        }
+
+        .iti { width: 100%; color: black; }
+        .form-input {
+            width: 100%; background: rgba(255, 255, 255, 0.95); color: #000; border: 1px solid #ddd;
+            border-radius: 0.5rem; padding: 0.75rem 1rem; outline: none; transition: border-color 0.2s;
+        }
+        .form-input:focus { border-color: #d4af7a; }
+        
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+        .fade-in-section {
+            opacity: 0; transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+            will-change: opacity, visibility;
+        }
+        .fade-in-section.is-visible { opacity: 1; transform: none; }
+        #modal { backdrop-filter: blur(5px); }
+    </style>
+</head>
+<body class="no-scrollbar selection:bg-gold selection:text-black">
+
+    <!-- HERO -->
+    <header class="relative min-h-[90vh] flex items-center justify-center pt-20 pb-16 overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="anastasia-photo.jpg" alt="Анастасія" class="w-full h-full object-cover object-top opacity-30 mix-blend-luminosity">
+            <div class="absolute inset-0 hero-overlay"></div>
+        </div>
+
+        <div class="container mx-auto px-5 z-10 text-center relative max-w-4xl fade-in-section is-visible">
+            <div class="inline-block border border-gold text-gold rounded-full px-4 py-1.5 text-sm font-medium tracking-wide mb-6 uppercase">Безкоштовний онлайн-ефір</div>
+            <h1 class="text-4xl md:text-5xl lg:text-7xl font-bold mb-6 text-white serif-font leading-tight">
+                Чому ти боїшся <br> <span class="text-gold italic">самореалізуватися?</span>
+            </h1>
+            <p class="text-lg md:text-xl text-gray-300 mb-8 max-w-2xl mx-auto font-light leading-relaxed">
+                Страхи, які керують твоїм життям і як їх нарешті побачити. <br>
+                Навіть якщо ти розумна, сильна і талановита — твій мозок може саботувати тебе прямо зараз.
+            </p>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-6 mb-10">
+                <div class="flex items-center gap-3 text-white"><i class="fa-regular fa-calendar text-gold text-xl"></i><span class="text-lg font-medium">3 березня</span></div>
+                <div class="hidden sm:block w-1.5 h-1.5 rounded-full bg-gold"></div>
+                <div class="flex items-center gap-3 text-white"><i class="fa-regular fa-clock text-gold text-xl"></i><span class="text-lg font-medium">17:00 по Києву</span></div>
+            </div>
+            <button onclick="openModal()" class="btn-gold animate-pulse-gold w-full sm:w-auto px-10 py-4 rounded-full text-lg font-bold uppercase tracking-wider">
+                Зареєструватися безкоштовно
+            </button>
+        </div>
+    </header>
+
+    <!-- БЛОК 2 -->
+    <section class="py-20 bg-[#050a08]">
+        <div class="container mx-auto px-5 max-w-5xl">
+            <h2 class="text-3xl md:text-5xl font-bold text-center mb-12 serif-font fade-in-section">Впізнаєш <span class="text-gold italic">себе?</span></h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+                <div class="glow-card p-6 md:p-8 fade-in-section"><i class="fa-solid fa-person-walking-arrow-loop-left text-3xl text-gold mb-4 opacity-80"></i><p class="text-gray-200 text-lg">Маєш ідеї, таланти, бажання, але щось постійно зупиняє. Ніби невидима стіна.</p></div>
+                <div class="glow-card p-6 md:p-8 fade-in-section"><i class="fa-solid fa-hourglass-half text-3xl text-gold mb-4 opacity-80"></i><p class="text-gray-200 text-lg">«Ось ще трохи підготуюся — і тоді...» Ти вічно готуєшся. Але старт не настає.</p></div>
+                <div class="glow-card p-6 md:p-8 fade-in-section"><i class="fa-solid fa-masks-theater text-3xl text-gold mb-4 opacity-80"></i><p class="text-gray-200 text-lg">Боїшся, що подумають: «зазналася», «не для неї це». І тримаєшся в тіні.</p></div>
+                <div class="glow-card p-6 md:p-8 fade-in-section"><i class="fa-solid fa-coins text-3xl text-gold mb-4 opacity-80"></i><p class="text-gray-200 text-lg">Хочеш більше заробляти, але зсередини щось шепоче: «не варта», «хто я така».</p></div>
+                <div class="glow-card p-6 md:p-8 fade-in-section"><i class="fa-solid fa-graduation-cap text-3xl text-gold mb-4 opacity-80"></i><p class="text-gray-200 text-lg">Вже стільки курсів і знань — а з місця не зрушила. Знаєш багато, робиш мало.</p></div>
+                <div class="glow-card p-6 md:p-8 fade-in-section"><i class="fa-solid fa-hand-holding-heart text-3xl text-gold mb-4 opacity-80"></i><p class="text-gray-200 text-lg">Всім допомагаєш, всіх підтримуєш. Але власна реалізація стоїть на паузі роками.</p></div>
+            </div>
+            <div class="text-center max-w-3xl mx-auto p-8 border border-gold/30 rounded-2xl bg-gold/5 fade-in-section">
+                <p class="text-xl md:text-2xl text-gray-100 font-light leading-relaxed">Це не слабкість і не лінь. Це <strong class="text-gold font-medium">сценарії</strong>, які колись давали тобі безпеку. Але зараз тримають на місці.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- БЛОК 3 -->
+    <section class="py-20 relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-96 h-96 bg-gold/5 rounded-full blur-[100px] pointer-events-none"></div>
+        <div class="container mx-auto px-5 max-w-4xl relative z-10">
+            <h2 class="text-3xl md:text-5xl font-bold text-center mb-6 serif-font fade-in-section">На ефірі <span class="text-gold italic">розберемо</span></h2>
+            <p class="text-center text-gray-400 mb-16 text-lg fade-in-section">Тут не буде езотерики та «потоків». Тільки практика, логіка і чесна розмова.</p>
+            <div class="space-y-8 mb-16">
+                <div class="flex flex-col md:flex-row gap-6 items-start fade-in-section"><div class="text-5xl font-bold text-gold/20 serif-font leading-none">01</div><div><h3 class="text-2xl font-semibold mb-2 text-white">Як твій мозок захищає тебе від змін</h3><p class="text-gray-400 text-lg">Чому сам мозок саботує реалізацію з точки зору нейропсихології. Зрозумієш механізм, як можна з ним працювати.</p></div></div>
+                <div class="w-full h-px bg-gradient-to-r from-transparent via-gold/20 to-transparent"></div>
+                <div class="flex flex-col md:flex-row gap-6 items-start fade-in-section"><div class="text-5xl font-bold text-gold/20 serif-font leading-none">02</div><div><h3 class="text-2xl font-semibold mb-2 text-white">5 блоків, які зупиняють тебе</h3><p class="text-gray-400 text-lg">Конкретні внутрішні програми, через які жінки не реалізуються.</p></div></div>
+                <div class="w-full h-px bg-gradient-to-r from-transparent via-gold/20 to-transparent"></div>
+                <div class="flex flex-col md:flex-row gap-6 items-start fade-in-section"><div class="text-5xl font-bold text-gold/20 serif-font leading-none">03</div><div><h3 class="text-2xl font-semibold mb-2 text-white">Грошові переконання</h3><p class="text-gray-400 text-lg">Чому голова хоче більше заробляти, а підсвідомість блокує. Які установки тримають тебе в тому ж фінансовому рівні роками.</p></div></div>
+                <div class="w-full h-px bg-gradient-to-r from-transparent via-gold/20 to-transparent"></div>
+                <div class="flex flex-col md:flex-row gap-6 items-start fade-in-section"><div class="text-5xl font-bold text-gold/20 serif-font leading-none">04</div><div><h3 class="text-2xl font-semibold mb-2 text-white">Що з цим робити</h3><p class="text-gray-400 text-lg">Конкретні кроки, як поєднати роботу з мисленням і реальні дії без вигорання.</p></div></div>
+            </div>
+            <div class="text-center fade-in-section"><button onclick="openModal()" class="btn-gold w-full sm:w-auto px-12 py-4 rounded-full text-lg font-bold uppercase tracking-wider">Хочу на ефір</button></div>
+        </div>
+    </section>
+
+    <!-- БЛОК 4 -->
+    <section class="py-20 bg-gradient-to-b from-[#050a08] to-[#0a1410]">
+        <div class="container mx-auto px-5 max-w-6xl">
+            <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
+                <div class="w-full lg:w-1/2 relative fade-in-section">
+                    <div class="absolute inset-0 bg-gold rounded-2xl transform translate-x-4 translate-y-4 opacity-20"></div>
+                    <img src="anastasia-photo.jpg" alt="Анастасія - Спікер" class="relative w-full h-auto rounded-2xl object-cover shadow-2xl z-10 aspect-[4/5] bg-gray-800">
+                </div>
+                <div class="w-full lg:w-1/2 fade-in-section">
+                    <h2 class="text-sm text-gold uppercase tracking-widest font-bold mb-3">Спікер ефіру</h2>
+                    <h3 class="text-4xl md:text-5xl font-bold mb-8 serif-font">Анастасія</h3>
+                    <div class="space-y-6 text-gray-300 text-lg font-light leading-relaxed">
+                        <p>У 25 — декрет, порожнеча і відчуття «я не знаю, ким хочу бути». Післяродова депресія. Початок війни. Конфлікти в стосунках — бо коли всередині пустка, нема що віддавати.</p>
+                        <p class="pl-4 border-l-2 border-gold text-white font-medium italic">«Я знаю зсередини, що таке жити з переконанням "я не варта". Брендові речі, машина, бізнес з чоловіком — а всередині все одно: "зі мною щось не так"».</p>
+                        <p>Як тільки я почала працювати з внутрішніми сценаріями і страхами — моє життя змінилося кардинально. Тепер я передаю цей досвід іншим.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- БЛОК 5 -->
+    <section class="py-24 relative">
+        <div class="container mx-auto px-5 max-w-4xl text-center fade-in-section">
+            <div class="inline-flex items-center justify-center w-20 h-20 rounded-full bg-gold/10 mb-6"><i class="fa-solid fa-gift text-4xl text-gold"></i></div>
+            <h2 class="text-3xl md:text-5xl font-bold mb-6 serif-font">Всі учасниці отримають <span class="text-gold italic">бонус</span></h2>
+            <p class="text-xl md:text-2xl text-gray-200 mb-8 font-light">Практика <strong class="text-white font-semibold">«Виявлення блоків проявлення»</strong> — безкоштовно для всіх, хто буде на ефірі до кінця.</p>
+            <div class="bg-red-900/20 border border-red-500/30 text-red-200 py-3 px-6 rounded-lg inline-block mb-10 text-sm md:text-base">
+                <i class="fa-solid fa-circle-exclamation mr-2"></i>Запису не буде. Бонус — тільки для живих учасниць.
+            </div>
+            <div class="block"><button onclick="openModal()" class="btn-gold animate-pulse-gold w-full sm:w-auto px-12 py-5 rounded-full text-xl font-bold uppercase tracking-wider">Хочу на ефір</button></div>
+        </div>
+    </section>
+
+    <footer class="border-t border-white/5 py-8 text-center text-gray-500 text-sm"><p>© 2024 Анастасія. Всі права захищені.</p></footer>
+
+    <!-- МОДАЛКА -->
+    <div id="modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 opacity-0 transition-opacity duration-300 bg-black/80">
+        <div class="relative bg-[#0a1410] border border-gold/30 rounded-2xl w-full max-w-md p-8 shadow-2xl transform scale-95 transition-transform duration-300" id="modal-content">
+            <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors"><i class="fa-solid fa-xmark text-2xl"></i></button>
+            <h3 class="text-2xl font-bold text-center mb-2 serif-font">Реєстрація на ефір</h3>
+            <p class="text-gray-400 text-center mb-6 text-sm">Заповніть форму нижче, щоб отримати посилання на трансляцію</p>
+
+            <form id="leadForm" class="space-y-4">
+                <div><label class="block text-sm text-gray-300 mb-1 ml-1">Ваше ім'я</label><input type="text" name="name" required placeholder="Анастасія" class="form-input"></div>
+                <div><label class="block text-sm text-gray-300 mb-1 ml-1">Номер телефону</label><input type="tel" id="phone" name="phone" required class="form-input"></div>
+                <div><label class="block text-sm text-gray-300 mb-1 ml-1">Нік у Telegram (починається з @)</label><input type="text" name="telegram" required placeholder="@nickname" class="form-input"></div>
+                <button type="submit" id="submitBtn" class="btn-gold w-full py-4 rounded-xl text-base font-bold uppercase tracking-wider mt-4 flex justify-center items-center">
+                    <span id="btnText">Зареєструватися</span><i id="btnLoader" class="fa-solid fa-spinner fa-spin hidden ml-2"></i>
+                </button>
+            </form>
+
+            <div id="successMessage" class="hidden text-center py-6">
+                <i class="fa-solid fa-circle-check text-5xl text-green-500 mb-4"></i>
+                <h4 class="text-xl font-bold mb-2">Ви успішно зареєстровані!</h4>
+                <p class="text-gray-400">Посилання на ефір прийде вам у Telegram.</p>
+                <button onclick="closeModal()" class="mt-6 text-gold underline hover:text-white">Закрити вікно</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- СКРИПТИ -->
+    <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@18.2.1/build/js/intlTelInput.min.js"></script>
+    <script>
+        // Анімації
+        const observer = new IntersectionObserver((entries) => { entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('is-visible'); }); }, { threshold: 0.1 });
+        document.querySelectorAll('.fade-in-section').forEach((el) => { observer.observe(el); });
+
+        // Модалка
+        const modal = document.getElementById('modal'); const modalContent = document.getElementById('modal-content');
+        function openModal() { modal.classList.remove('hidden'); modal.classList.add('flex'); setTimeout(() => { modal.classList.remove('opacity-0'); modalContent.classList.remove('scale-95'); modalContent.classList.add('scale-100'); }, 10); }
+        function closeModal() { modal.classList.add('opacity-0'); modalContent.classList.remove('scale-100'); modalContent.classList.add('scale-95'); setTimeout(() => { modal.classList.add('hidden'); modal.classList.remove('flex'); document.getElementById('leadForm').classList.remove('hidden'); document.getElementById('successMessage').classList.add('hidden'); document.getElementById('leadForm').reset(); }, 300); }
+        modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
+
+        // Телефон
+        const phoneInput = document.querySelector("#phone");
+        const iti = window.intlTelInput(phoneInput, { utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@18.2.1/build/js/utils.js", initialCountry: "ua", preferredCountries: ["ua", "pl", "de", "us"], separateDialCode: true });
+
+        // --- РОБОТА З UTM ТА ВІДПРАВКА ---
+        const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwGypKDfaWyOB0qN8lv1tiqs37sw16-7sHn2SOV3VerLC1e2PG39F5Vo0pWpEAinOnwlg/exec'; // <--- ВСТАВЬ СЮДА ССЫЛКУ
+
+        // Парсинг UTM
+        const urlParams = new URLSearchParams(window.location.search);
+        const utms = {
+            utm_source: urlParams.get('utm_source') || '',
+            utm_medium: urlParams.get('utm_medium') || '',
+            utm_campaign: urlParams.get('utm_campaign') || '',
+            utm_term: urlParams.get('utm_term') || '',
+            utm_content: urlParams.get('utm_content') || ''
+        };
+
+        document.getElementById('leadForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            if (!iti.isValidNumber()) { alert("Будь ласка, введіть коректний номер телефону."); return; }
+
+            const form = e.target;
+            const submitBtn = document.getElementById('submitBtn');
+            const formData = new FormData(form);
+            
+            // Формуємо фінальні дані з ідентифікатором та UTM
+            const data = {
+                formName: "Ефір", // Це допоможе твоєму Гугл скрипту дізнатися, звідки лід
+                name: formData.get('name'),
+                phone: iti.getNumber(),
+                telegram: formData.get('telegram'),
+                ...utms // Додаємо всі UTM метки до об'єкту
+            };
+
+            if(GOOGLE_SCRIPT_URL === 'ТВОЙ_URL_СКРИПТА_СЮДА') { console.log(data); showSuccess(); return; }
+
+            submitBtn.disabled = true; document.getElementById('btnText').textContent = 'Відправка...'; document.getElementById('btnLoader').classList.remove('hidden');
+
+            try {
+                await fetch(GOOGLE_SCRIPT_URL, { method: 'POST', mode: 'no-cors', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) });
+                showSuccess();
+            } catch (error) {
+                alert('Сталася помилка. Спробуйте ще раз.');
+            } finally {
+                submitBtn.disabled = false; document.getElementById('btnText').textContent = 'Зареєструватися'; document.getElementById('btnLoader').classList.add('hidden');
+            }
+        });
+
+        function showSuccess() { document.getElementById('leadForm').classList.add('hidden'); document.getElementById('successMessage').classList.remove('hidden'); }
+    </script>
+</body>
+</html>
