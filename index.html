@@ -1,25 +1,49 @@
 <!DOCTYPE html>
 <html lang="uk" class="scroll-smooth">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Чому ти боїшся самореалізуватися? | Безкоштовний ефір</title>
-    
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@18.2.1/build/css/intlTelInput.css">
 
     <style>
         /* Базові стилі */
-        body { font-family: 'Inter', sans-serif; background-color: #0f1613; color: #e5e7eb; overflow-x: hidden; padding-bottom: 80px; }
-        h1, h2, h3, h4, .serif-font { font-family: 'Playfair Display', serif; }
-        
-        .text-gold { color: #d4af7a; }
-        .border-gold { border-color: #d4af7a; }
-        .bg-gold { background-color: #d4af7a; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0f1613;
+            color: #e5e7eb;
+            overflow-x: hidden;
+            padding-bottom: 80px;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        .serif-font {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .text-gold {
+            color: #d4af7a;
+        }
+
+        .border-gold {
+            border-color: #d4af7a;
+        }
+
+        .bg-gold {
+            background-color: #d4af7a;
+        }
 
         .btn-gold {
             background: linear-gradient(180deg, #d4af7a 0%, #b08d55 100%);
@@ -27,58 +51,132 @@
             box-shadow: 0 4px 20px rgba(212, 175, 122, 0.25);
             transition: all 0.3s ease;
         }
-        .btn-gold:hover { opacity: 0.95; box-shadow: 0 4px 30px rgba(212, 175, 122, 0.4); transform: translateY(-2px); }
-        .btn-gold:active { transform: scale(0.98); }
 
-        @keyframes pulse-gold { 0%, 100% { box-shadow: 0 0 0 0 rgba(212, 175, 122, 0.4); } 70% { box-shadow: 0 0 0 15px rgba(212, 175, 122, 0); } }
-        .animate-pulse-gold { animation: pulse-gold 2.5s infinite; }
+        .btn-gold:hover {
+            opacity: 0.95;
+            box-shadow: 0 4px 30px rgba(212, 175, 122, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .btn-gold:active {
+            transform: scale(0.98);
+        }
+
+        @keyframes pulse-gold {
+
+            0%,
+            100% {
+                box-shadow: 0 0 0 0 rgba(212, 175, 122, 0.4);
+            }
+
+            70% {
+                box-shadow: 0 0 0 15px rgba(212, 175, 122, 0);
+            }
+        }
+
+        .animate-pulse-gold {
+            animation: pulse-gold 2.5s infinite;
+        }
 
         /* Оверлей: зверху прозорий (щоб обличчя було світлим), знизу темний */
-        .hero-overlay { background: linear-gradient(180deg, rgba(15,22,19,0) 0%, rgba(15,22,19,0.3) 40%, rgba(15,22,19,0.9) 80%, rgba(15,22,19,1) 100%); }
+        .hero-overlay {
+            background: linear-gradient(180deg, rgba(15, 22, 19, 0) 0%, rgba(15, 22, 19, 0.3) 40%, rgba(15, 22, 19, 0.9) 80%, rgba(15, 22, 19, 1) 100%);
+        }
 
-        .glow-card { background-color: rgba(255, 255, 255, 0.03); border: 1px solid rgba(212, 175, 122, 0.15); border-radius: 0.75rem; transition: all 0.3s ease; }
-        .glow-card:hover { background-color: rgba(255, 255, 255, 0.06); border-color: rgba(212, 175, 122, 0.4); transform: translateY(-5px); box-shadow: 0 10px 30px -10px rgba(212, 175, 122, 0.1); }
+        .glow-card {
+            background-color: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(212, 175, 122, 0.15);
+            border-radius: 0.75rem;
+            transition: all 0.3s ease;
+        }
 
-        .iti { width: 100%; color: black; }
-        .form-input { width: 100%; background: rgba(255, 255, 255, 0.95); color: #000; border: 1px solid #ddd; border-radius: 0.5rem; padding: 0.75rem 1rem; outline: none; transition: border-color 0.2s; }
-        .form-input:focus { border-color: #d4af7a; }
-        
-        .no-scrollbar::-webkit-scrollbar { display: none; }
-        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        .glow-card:hover {
+            background-color: rgba(255, 255, 255, 0.06);
+            border-color: rgba(212, 175, 122, 0.4);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px -10px rgba(212, 175, 122, 0.1);
+        }
+
+        .iti {
+            width: 100%;
+            color: black;
+        }
+
+        .form-input {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            color: #000;
+            border: 1px solid #ddd;
+            border-radius: 0.5rem;
+            padding: 0.75rem 1rem;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .form-input:focus {
+            border-color: #d4af7a;
+        }
+
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
 
         /* ПРАВИЛЬНА анімація скролу (без багів з opacity) */
-        .fade-in-section { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
-        .fade-in-section.is-visible { opacity: 1; transform: translateY(0); }
-        
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
         /* Модалка */
-        #modal { backdrop-filter: blur(8px); z-index: 9999; }
-        body.modal-open { overflow: hidden; }
+        #modal {
+            backdrop-filter: blur(8px);
+            z-index: 9999;
+        }
+
+        body.modal-open {
+            overflow: hidden;
+        }
     </style>
 
     <!-- Meta Pixel Code -->
     <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '802066355916067');
-    fbq('track', 'PageView');
+        !function (f, b, e, v, n, t, s) {
+            if (f.fbq) return; n = f.fbq = function () {
+                n.callMethod ?
+                n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+            };
+            if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+            n.queue = []; t = b.createElement(e); t.async = !0;
+            t.src = v; s = b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t, s)
+        }(window, document, 'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '802066355916067');
+        fbq('track', 'PageView');
     </script>
     <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=802066355916067&ev=PageView&noscript=1"
-    /></noscript>
+            src="https://www.facebook.com/tr?id=802066355916067&ev=PageView&noscript=1" /></noscript>
     <!-- End Meta Pixel Code -->
 
 </head>
+
 <body class="no-scrollbar selection:bg-gold selection:text-black md:pb-0">
 
     <!-- ПЛАВАЮЧА КНОПКА ДЛЯ МОБІЛОК -->
     <div class="md:hidden fixed bottom-4 left-4 right-4 z-[60]">
-        <button type="button" onclick="openModal()" class="btn-gold animate-pulse-gold w-full py-4 rounded-full flex items-center justify-center shadow-[0_10px_30px_rgba(0,0,0,0.8)] border border-gold/40">
+        <button type="button" onclick="openModal()"
+            class="btn-gold animate-pulse-gold w-full py-4 rounded-full flex items-center justify-center shadow-[0_10px_30px_rgba(0,0,0,0.8)] border border-gold/40">
             <span class="text-[13px] tracking-wide whitespace-nowrap uppercase font-bold text-center block w-full px-1">
                 Зареєструватися безкоштовно
             </span>
@@ -86,33 +184,42 @@
     </div>
 
     <!-- БЛОК 1: HERO -->
-    <header class="relative min-h-[85vh] md:min-h-[90vh] flex flex-col items-center justify-end md:justify-center pb-12 pt-24 overflow-hidden bg-[#0f1613]">
+    <header
+        class="relative min-h-[85vh] md:min-h-[90vh] flex flex-col items-center justify-end md:justify-center pb-12 pt-24 overflow-hidden bg-[#0f1613]">
         <div class="absolute inset-0 z-0">
             <img src="IMG_0941.JPG" alt="Анастасія Унгурян" class="w-full h-full object-cover object-top opacity-70">
             <div class="absolute inset-0 hero-overlay"></div>
         </div>
 
         <div class="container mx-auto px-5 z-10 text-center relative max-w-4xl fade-in-section is-visible">
-            <div class="inline-block border border-gold text-gold rounded-full px-4 py-1.5 text-xs md:text-sm font-medium tracking-wide mb-6 uppercase">
+            <div
+                class="inline-block border border-gold text-gold rounded-full px-4 py-1.5 text-xs md:text-sm font-medium tracking-wide mb-6 uppercase">
                 Безкоштовний онлайн-ефір
             </div>
-            
-            <h1 class="text-4xl md:text-5xl lg:text-7xl font-bold mb-4 md:mb-6 text-white serif-font leading-tight drop-shadow-lg">
+
+            <h1
+                class="text-4xl md:text-5xl lg:text-7xl font-bold mb-4 md:mb-6 text-white serif-font leading-tight drop-shadow-lg">
                 Чому ти боїшся <br> <span class="text-gold italic">самореалізуватися?</span>
             </h1>
-            
-            <p class="text-base md:text-xl text-gray-200 mb-6 max-w-2xl mx-auto font-light leading-relaxed drop-shadow-md">
+
+            <p
+                class="text-base md:text-xl text-gray-200 mb-6 max-w-2xl mx-auto font-light leading-relaxed drop-shadow-md">
                 Страхи, які керують твоїм життям і як їх нарешті побачити. <br class="hidden md:block">
                 Навіть якщо ти розумна, сильна і талановита — твій мозок може саботувати тебе прямо зараз.
             </p>
-            
+
             <div class="flex flex-col sm:flex-row items-center justify-center gap-3 md:gap-6 mb-4 md:mb-10">
-                <div class="flex items-center gap-3 text-white"><i class="fa-regular fa-calendar text-gold text-xl"></i><span class="text-lg font-medium drop-shadow-md">3 березня</span></div>
+                <div class="flex items-center gap-3 text-white"><i
+                        class="fa-regular fa-calendar text-gold text-xl"></i><span
+                        class="text-lg font-medium drop-shadow-md">3 березня</span></div>
                 <div class="hidden sm:block w-1.5 h-1.5 rounded-full bg-gold"></div>
-                <div class="flex items-center gap-3 text-white"><i class="fa-regular fa-clock text-gold text-xl"></i><span class="text-lg font-medium drop-shadow-md">19:00 по Києву</span></div>
+                <div class="flex items-center gap-3 text-white"><i
+                        class="fa-regular fa-clock text-gold text-xl"></i><span
+                        class="text-lg font-medium drop-shadow-md">19:00 по Києву</span></div>
             </div>
-            
-            <button type="button" onclick="openModal()" class="hidden md:inline-block btn-gold animate-pulse-gold w-full sm:w-auto px-10 py-4 rounded-full text-lg font-bold uppercase tracking-wider mt-4">
+
+            <button type="button" onclick="openModal()"
+                class="hidden md:inline-block btn-gold animate-pulse-gold w-full sm:w-auto px-10 py-4 rounded-full text-lg font-bold uppercase tracking-wider mt-4">
                 Зареєструватися безкоштовно
             </button>
         </div>
@@ -121,17 +228,45 @@
     <!-- БЛОК 2: ВПІЗНАЄШ СЕБЕ -->
     <section class="pt-10 pb-16 md:py-20 bg-[#0f1613] relative z-20">
         <div class="container mx-auto px-5 max-w-5xl">
-            <h2 class="text-3xl md:text-5xl font-bold text-center mb-10 md:mb-12 serif-font fade-in-section">Впізнаєш <span class="text-gold italic">себе?</span></h2>
+            <h2 class="text-3xl md:text-5xl font-bold text-center mb-10 md:mb-12 serif-font fade-in-section">Впізнаєш
+                <span class="text-gold italic">себе?</span></h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mb-12">
-                <div class="glow-card p-6 md:p-8 fade-in-section"><i class="fa-solid fa-person-walking-arrow-loop-left text-3xl text-gold mb-4 opacity-80"></i><p class="text-gray-200 text-base md:text-lg">Маєш ідеї, таланти, бажання, але щось постійно зупиняє. Ніби невидима стіна.</p></div>
-                <div class="glow-card p-6 md:p-8 fade-in-section"><i class="fa-solid fa-hourglass-half text-3xl text-gold mb-4 opacity-80"></i><p class="text-gray-200 text-base md:text-lg">«Ось ще трохи підготуюся — і тоді...» Ти вічно готуєшся. Але старт не настає.</p></div>
-                <div class="glow-card p-6 md:p-8 fade-in-section"><i class="fa-solid fa-masks-theater text-3xl text-gold mb-4 opacity-80"></i><p class="text-gray-200 text-base md:text-lg">Боїшся, що подумають: «зазналася», «не для неї це». І тримаєшся в тіні.</p></div>
-                <div class="glow-card p-6 md:p-8 fade-in-section"><i class="fa-solid fa-coins text-3xl text-gold mb-4 opacity-80"></i><p class="text-gray-200 text-base md:text-lg">Хочеш більше заробляти, але зсередини щось шепоче: «не варта», «хто я така».</p></div>
-                <div class="glow-card p-6 md:p-8 fade-in-section"><i class="fa-solid fa-graduation-cap text-3xl text-gold mb-4 opacity-80"></i><p class="text-gray-200 text-base md:text-lg">Вже стільки курсів і знань — а з місця не зрушила. Знаєш багато, робиш мало.</p></div>
-                <div class="glow-card p-6 md:p-8 fade-in-section"><i class="fa-solid fa-hand-holding-heart text-3xl text-gold mb-4 opacity-80"></i><p class="text-gray-200 text-base md:text-lg">Всім допомагаєш, всіх підтримуєш. Але власна реалізація стоїть на паузі роками.</p></div>
+                <div class="glow-card p-6 md:p-8 fade-in-section"><i
+                        class="fa-solid fa-person-walking-arrow-loop-left text-3xl text-gold mb-4 opacity-80"></i>
+                    <p class="text-gray-200 text-base md:text-lg">Маєш ідеї, таланти, бажання, але щось постійно
+                        зупиняє. Ніби невидима стіна.</p>
+                </div>
+                <div class="glow-card p-6 md:p-8 fade-in-section"><i
+                        class="fa-solid fa-hourglass-half text-3xl text-gold mb-4 opacity-80"></i>
+                    <p class="text-gray-200 text-base md:text-lg">«Ось ще трохи підготуюся — і тоді...» Ти вічно
+                        готуєшся. Але старт не настає.</p>
+                </div>
+                <div class="glow-card p-6 md:p-8 fade-in-section"><i
+                        class="fa-solid fa-masks-theater text-3xl text-gold mb-4 opacity-80"></i>
+                    <p class="text-gray-200 text-base md:text-lg">Боїшся, що подумають: «зазналася», «не для неї це». І
+                        тримаєшся в тіні.</p>
+                </div>
+                <div class="glow-card p-6 md:p-8 fade-in-section"><i
+                        class="fa-solid fa-coins text-3xl text-gold mb-4 opacity-80"></i>
+                    <p class="text-gray-200 text-base md:text-lg">Хочеш більше заробляти, але зсередини щось шепоче: «не
+                        варта», «хто я така».</p>
+                </div>
+                <div class="glow-card p-6 md:p-8 fade-in-section"><i
+                        class="fa-solid fa-graduation-cap text-3xl text-gold mb-4 opacity-80"></i>
+                    <p class="text-gray-200 text-base md:text-lg">Вже стільки курсів і знань — а з місця не зрушила.
+                        Знаєш багато, робиш мало.</p>
+                </div>
+                <div class="glow-card p-6 md:p-8 fade-in-section"><i
+                        class="fa-solid fa-hand-holding-heart text-3xl text-gold mb-4 opacity-80"></i>
+                    <p class="text-gray-200 text-base md:text-lg">Всім допомагаєш, всіх підтримуєш. Але власна
+                        реалізація стоїть на паузі роками.</p>
+                </div>
             </div>
-            <div class="text-center max-w-3xl mx-auto p-6 md:p-8 border border-gold/30 rounded-2xl bg-gold/5 fade-in-section">
-                <p class="text-lg md:text-2xl text-gray-100 font-light leading-relaxed">Це не слабкість і не лінь. Це <strong class="text-gold font-medium">сценарії</strong>, які колись давали тобі безпеку. Але зараз тримають на місці.</p>
+            <div
+                class="text-center max-w-3xl mx-auto p-6 md:p-8 border border-gold/30 rounded-2xl bg-gold/5 fade-in-section">
+                <p class="text-lg md:text-2xl text-gray-100 font-light leading-relaxed">Це не слабкість і не лінь. Це
+                    <strong class="text-gold font-medium">сценарії</strong>, які колись давали тобі безпеку. Але зараз
+                    тримають на місці.</p>
             </div>
         </div>
     </section>
@@ -140,58 +275,101 @@
     <section class="py-16 md:py-20 relative overflow-hidden bg-gradient-to-b from-[#0f1613] to-[#141d19]">
         <div class="absolute top-0 right-0 w-96 h-96 bg-gold/5 rounded-full blur-[100px] pointer-events-none"></div>
         <div class="container mx-auto px-5 max-w-4xl relative z-10">
-            <h2 class="text-3xl md:text-5xl font-bold text-center mb-4 md:mb-6 serif-font fade-in-section">На ефірі <span class="text-gold italic">розберемо</span></h2>
-            <p class="text-center text-gray-400 mb-12 md:mb-16 text-base md:text-lg fade-in-section">Тут не буде езотерики та «потоків». Тільки практика, логіка і чесна розмова.</p>
-            
+            <h2 class="text-3xl md:text-5xl font-bold text-center mb-4 md:mb-6 serif-font fade-in-section">На ефірі
+                <span class="text-gold italic">розберемо</span></h2>
+            <p class="text-center text-gray-400 mb-12 md:mb-16 text-base md:text-lg fade-in-section">Тут не буде
+                езотерики та «потоків». Тільки практика, логіка і чесна розмова.</p>
+
             <div class="space-y-8 mb-16">
-                <div class="flex flex-col md:flex-row gap-4 md:gap-6 items-start fade-in-section"><div class="text-4xl md:text-5xl font-bold text-gold/20 serif-font leading-none">01</div><div><h3 class="text-xl md:text-2xl font-semibold mb-2 text-white">Як твій мозок захищає тебе від змін</h3><p class="text-gray-400 text-base md:text-lg">Чому сам мозок саботує реалізацію з точки зору нейропсихології. Зрозумієш механізм, як можна з ним працювати.</p></div></div>
+                <div class="flex flex-col md:flex-row gap-4 md:gap-6 items-start fade-in-section">
+                    <div class="text-4xl md:text-5xl font-bold text-gold/20 serif-font leading-none">01</div>
+                    <div>
+                        <h3 class="text-xl md:text-2xl font-semibold mb-2 text-white">Як твій мозок захищає тебе від
+                            змін</h3>
+                        <p class="text-gray-400 text-base md:text-lg">Чому сам мозок саботує реалізацію з точки зору
+                            нейропсихології. Зрозумієш механізм, як можна з ним працювати.</p>
+                    </div>
+                </div>
                 <div class="w-full h-px bg-gradient-to-r from-transparent via-gold/20 to-transparent"></div>
-                <div class="flex flex-col md:flex-row gap-4 md:gap-6 items-start fade-in-section"><div class="text-4xl md:text-5xl font-bold text-gold/20 serif-font leading-none">02</div><div><h3 class="text-xl md:text-2xl font-semibold mb-2 text-white">5 блоків, які зупиняють тебе</h3><p class="text-gray-400 text-base md:text-lg">Конкретні внутрішні програми, через які жінки не реалізуються.</p></div></div>
+                <div class="flex flex-col md:flex-row gap-4 md:gap-6 items-start fade-in-section">
+                    <div class="text-4xl md:text-5xl font-bold text-gold/20 serif-font leading-none">02</div>
+                    <div>
+                        <h3 class="text-xl md:text-2xl font-semibold mb-2 text-white">5 блоків, які зупиняють тебе</h3>
+                        <p class="text-gray-400 text-base md:text-lg">Конкретні внутрішні програми, через які жінки не
+                            реалізуються.</p>
+                    </div>
+                </div>
                 <div class="w-full h-px bg-gradient-to-r from-transparent via-gold/20 to-transparent"></div>
-                <div class="flex flex-col md:flex-row gap-4 md:gap-6 items-start fade-in-section"><div class="text-4xl md:text-5xl font-bold text-gold/20 serif-font leading-none">03</div><div><h3 class="text-xl md:text-2xl font-semibold mb-2 text-white">Грошові переконання</h3><p class="text-gray-400 text-base md:text-lg">Чому голова хоче більше заробляти, а підсвідомість блокує. Які установки тримають тебе в тому ж фінансовому рівні роками.</p></div></div>
+                <div class="flex flex-col md:flex-row gap-4 md:gap-6 items-start fade-in-section">
+                    <div class="text-4xl md:text-5xl font-bold text-gold/20 serif-font leading-none">03</div>
+                    <div>
+                        <h3 class="text-xl md:text-2xl font-semibold mb-2 text-white">Грошові переконання</h3>
+                        <p class="text-gray-400 text-base md:text-lg">Чому голова хоче більше заробляти, а підсвідомість
+                            блокує. Які установки тримають тебе в тому ж фінансовому рівні роками.</p>
+                    </div>
+                </div>
                 <div class="w-full h-px bg-gradient-to-r from-transparent via-gold/20 to-transparent"></div>
-                <div class="flex flex-col md:flex-row gap-4 md:gap-6 items-start fade-in-section"><div class="text-4xl md:text-5xl font-bold text-gold/20 serif-font leading-none">04</div><div><h3 class="text-xl md:text-2xl font-semibold mb-2 text-white">Що з цим робити</h3><p class="text-gray-400 text-base md:text-lg">Конкретні кроки, як поєднати роботу з мисленням і реальні дії без вигорання.</p></div></div>
+                <div class="flex flex-col md:flex-row gap-4 md:gap-6 items-start fade-in-section">
+                    <div class="text-4xl md:text-5xl font-bold text-gold/20 serif-font leading-none">04</div>
+                    <div>
+                        <h3 class="text-xl md:text-2xl font-semibold mb-2 text-white">Що з цим робити</h3>
+                        <p class="text-gray-400 text-base md:text-lg">Конкретні кроки, як поєднати роботу з мисленням і
+                            реальні дії без вигорання.</p>
+                    </div>
+                </div>
             </div>
-            
-            <div class="text-center hidden md:block fade-in-section"><button type="button" onclick="openModal()" class="btn-gold px-12 py-4 rounded-full text-lg font-bold uppercase tracking-wider">Хочу на ефір</button></div>
+
+            <div class="text-center hidden md:block fade-in-section"><button type="button" onclick="openModal()"
+                    class="btn-gold px-12 py-4 rounded-full text-lg font-bold uppercase tracking-wider">Хочу на
+                    ефір</button></div>
         </div>
     </section>
 
     <!-- БЛОК 4: ІСТОРІЯ / СПІКЕР -->
     <section class="py-16 md:py-24 bg-[#0f1613]">
         <div class="container mx-auto px-5 max-w-4xl">
-            <h2 class="text-4xl md:text-5xl font-bold text-center mb-12 md:mb-16 serif-font text-gold fade-in-section">My Story</h2>
-            
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-12 md:mb-16 serif-font text-gold fade-in-section">
+                My Story</h2>
+
             <!-- Секція "ДО" -->
             <div class="mb-12 fade-in-section">
                 <div class="grid grid-cols-2 gap-3 md:gap-6 mb-6">
-                    <img src="do1.jpg" alt="До 1" class="w-full h-full object-cover rounded-xl md:rounded-2xl aspect-[3/4] grayscale">
-                    <img src="do2.jpg" alt="До 2" class="w-full h-full object-cover rounded-xl md:rounded-2xl aspect-[3/4] grayscale">
+                    <img src="do1.jpg" alt="До 1"
+                        class="w-full h-full object-cover rounded-xl md:rounded-2xl aspect-[3/4] grayscale">
+                    <img src="do2.jpg" alt="До 2"
+                        class="w-full h-full object-cover rounded-xl md:rounded-2xl aspect-[3/4] grayscale">
                 </div>
-                
+
                 <h3 class="text-2xl md:text-3xl font-bold mb-4 serif-font text-gold">ДО: Втрата себе</h3>
                 <p class="text-gray-300 text-base md:text-lg font-light leading-relaxed">
-                    Привіт, мене звати Анастасія Унгурян. До 25 років я не знала, ким хочу бути. Декрет, післяпологова депресія. Сварки з чоловіком, шлюб на межі розлучення. Я відчувала себе нереалізованою та живу з переконанням "я не варта більшого".
+                    Привіт, мене звати Анастасія Унгурян. До 25 років я не знала, ким хочу бути. Декрет, післяпологова
+                    депресія. Сварки з чоловіком, шлюб на межі розлучення. Я відчувала себе нереалізованою та живу з
+                    переконанням "я не варта більшого".
                 </p>
             </div>
 
             <!-- Секція "ПІСЛЯ" -->
             <div class="mb-10 fade-in-section">
                 <div class="grid grid-cols-2 gap-3 md:gap-6 mb-6">
-                    <img src="after1.jpg" alt="Після 1" class="w-full h-full object-cover rounded-xl md:rounded-2xl aspect-[3/4]">
-                    <img src="after2.jpg" alt="Після 2" class="w-full h-full object-cover rounded-xl md:rounded-2xl aspect-[3/4]">
+                    <img src="after1.jpg" alt="Після 1"
+                        class="w-full h-full object-cover rounded-xl md:rounded-2xl aspect-[3/4]">
+                    <img src="after2.jpg" alt="Після 2"
+                        class="w-full h-full object-cover rounded-xl md:rounded-2xl aspect-[3/4]">
                 </div>
-                
+
                 <h3 class="text-2xl md:text-3xl font-bold mb-4 serif-font text-gold">ЗАРАЗ: Реалізація</h3>
                 <p class="text-gray-300 text-base md:text-lg font-light leading-relaxed">
-                    Жінка, яка збудувала сильний особистий бренд. Через мої проекти пройшло 40,000+ жінок. Займаюсь улюбленою справою та втілюю проекти, маю гармонійні стосунки в сім'ї, впевнена та наповнена енергією.
+                    Жінка, яка збудувала сильний особистий бренд. Через мої проекти пройшло 40,000+ жінок. Займаюсь
+                    улюбленою справою та втілюю проекти, маю гармонійні стосунки в сім'ї, впевнена та наповнена
+                    енергією.
                 </p>
             </div>
 
             <!-- Висновок -->
             <div class="text-center p-6 md:p-8 border border-white/10 rounded-2xl bg-white/5 fade-in-section">
                 <p class="text-lg md:text-xl text-white font-light leading-relaxed">
-                    Як тільки я почала працювати з внутрішніми сценаріями і страхами — моє життя змінилося кардинально. Тепер я передаю цей досвід іншим.
+                    Як тільки я почала працювати з внутрішніми сценаріями і страхами — моє життя змінилося кардинально.
+                    Тепер я передаю цей досвід іншим.
                 </p>
             </div>
 
@@ -201,28 +379,41 @@
     <!-- БЛОК 5: БОНУС -->
     <section class="py-16 md:py-24 relative bg-gradient-to-t from-[#0f1613] to-[#141d19]">
         <div class="container mx-auto px-5 max-w-4xl text-center fade-in-section">
-            <div class="inline-flex items-center justify-center w-16 h-16 md:w-20 md:h-20 rounded-full bg-gold/10 mb-6"><i class="fa-solid fa-gift text-3xl md:text-4xl text-gold"></i></div>
-            <h2 class="text-3xl md:text-5xl font-bold mb-4 md:mb-6 serif-font">Всі учасниці отримають <span class="text-gold italic">бонус</span></h2>
-            <p class="text-lg md:text-2xl text-gray-200 mb-8 font-light">Практика <strong class="text-white font-semibold">«Виявлення блоків проявлення»</strong> — безкоштовно для всіх, хто буде на ефірі до кінця.</p>
-            <div class="bg-red-900/20 border border-red-500/30 text-red-200 py-3 px-4 md:px-6 rounded-lg inline-block mb-10 text-xs md:text-sm">
+            <div class="inline-flex items-center justify-center w-16 h-16 md:w-20 md:h-20 rounded-full bg-gold/10 mb-6">
+                <i class="fa-solid fa-gift text-3xl md:text-4xl text-gold"></i></div>
+            <h2 class="text-3xl md:text-5xl font-bold mb-4 md:mb-6 serif-font">Всі учасниці отримають <span
+                    class="text-gold italic">бонус</span></h2>
+            <p class="text-lg md:text-2xl text-gray-200 mb-8 font-light">Практика <strong
+                    class="text-white font-semibold">«Виявлення блоків проявлення»</strong> — безкоштовно для всіх, хто
+                буде на ефірі до кінця.</p>
+            <div
+                class="bg-red-900/20 border border-red-500/30 text-red-200 py-3 px-4 md:px-6 rounded-lg inline-block mb-10 text-xs md:text-sm">
                 <i class="fa-solid fa-circle-exclamation mr-2"></i>Запису не буде. Бонус — тільки для живих учасниць.
             </div>
-            <div class="hidden md:block"><button type="button" onclick="openModal()" class="btn-gold animate-pulse-gold px-12 py-5 rounded-full text-xl font-bold uppercase tracking-wider">Хочу на ефір</button></div>
+            <div class="hidden md:block"><button type="button" onclick="openModal()"
+                    class="btn-gold animate-pulse-gold px-12 py-5 rounded-full text-xl font-bold uppercase tracking-wider">Хочу
+                    на ефір</button></div>
         </div>
     </section>
 
-    <footer class="border-t border-white/5 py-8 text-center text-gray-500 text-sm pb-10 md:pb-8"><p>© 2024 Анастасія Унгурян. Всі права захищені.</p></footer>
+    <footer class="border-t border-white/5 py-8 text-center text-gray-500 text-sm pb-10 md:pb-8">
+        <p>© 2024 Анастасія Унгурян. Всі права захищені.</p>
+    </footer>
 
     <!-- МОДАЛЬНЕ ВІКНО -->
-    <div id="modal" class="fixed inset-0 hidden items-center justify-center p-4 bg-black/80 transition-opacity duration-300 opacity-0">
-        <div class="relative bg-[#0a1410] border border-gold/30 rounded-2xl w-full max-w-md p-6 md:p-8 shadow-2xl transform scale-95 transition-transform duration-300" id="modal-content">
-            
-            <button type="button" onclick="closeModal()" class="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors">
+    <div id="modal"
+        class="fixed inset-0 hidden items-center justify-center p-4 bg-black/80 transition-opacity duration-300 opacity-0">
+        <div class="relative bg-[#0a1410] border border-gold/30 rounded-2xl w-full max-w-md p-6 md:p-8 shadow-2xl transform scale-95 transition-transform duration-300"
+            id="modal-content">
+
+            <button type="button" onclick="closeModal()"
+                class="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors">
                 <i class="fa-solid fa-xmark text-2xl"></i>
             </button>
-            
+
             <h3 class="text-xl md:text-2xl font-bold text-center mb-2 serif-font">Реєстрація на ефір</h3>
-            <p class="text-gray-400 text-center mb-6 text-xs md:text-sm">Заповніть форму нижче, щоб отримати посилання на трансляцію</p>
+            <p class="text-gray-400 text-center mb-6 text-xs md:text-sm">Заповніть форму нижче, щоб отримати посилання
+                на трансляцію</p>
 
             <form id="leadForm" class="space-y-4">
                 <div>
@@ -237,7 +428,8 @@
                     <label class="block text-sm text-gray-300 mb-1 ml-1">Нік у Telegram (починається з @)</label>
                     <input type="text" name="telegram" required placeholder="@nickname" class="form-input">
                 </div>
-                <button type="submit" id="submitBtn" class="btn-gold w-full py-4 rounded-xl text-sm md:text-base font-bold uppercase tracking-wider mt-4 flex justify-center items-center">
+                <button type="submit" id="submitBtn"
+                    class="btn-gold w-full py-4 rounded-xl text-sm md:text-base font-bold uppercase tracking-wider mt-4 flex justify-center items-center">
                     <span id="btnText">Зареєструватися</span>
                     <i id="btnLoader" class="fa-solid fa-spinner fa-spin hidden ml-2"></i>
                 </button>
@@ -247,7 +439,8 @@
                 <i class="fa-solid fa-circle-check text-5xl text-green-500 mb-4"></i>
                 <h4 class="text-xl font-bold mb-2">Ви успішно зареєстровані!</h4>
                 <p class="text-gray-400 text-sm">Посилання на ефір прийде вам у Telegram.</p>
-                <button type="button" onclick="closeModal()" class="mt-6 text-gold underline hover:text-white text-sm">Закрити вікно</button>
+                <button type="button" onclick="closeModal()"
+                    class="mt-6 text-gold underline hover:text-white text-sm">Закрити вікно</button>
             </div>
         </div>
     </div>
@@ -256,63 +449,63 @@
     <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@18.2.1/build/js/intlTelInput.min.js"></script>
     <script>
         // Анімація при скролі
-        const observer = new IntersectionObserver((entries) => { 
-            entries.forEach(entry => { 
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('is-visible'); 
+                    entry.target.classList.add('is-visible');
                 }
-            }); 
+            });
         }, { threshold: 0.1 });
-        
-        document.querySelectorAll('.fade-in-section').forEach((el) => { 
-            observer.observe(el); 
+
+        document.querySelectorAll('.fade-in-section').forEach((el) => {
+            observer.observe(el);
         });
 
         // МОДАЛЬНЕ ВІКНО (Надійна версія)
-        const modal = document.getElementById('modal'); 
+        const modal = document.getElementById('modal');
         const modalContent = document.getElementById('modal-content');
-        
-        function openModal() { 
+
+        function openModal() {
             document.body.classList.add('modal-open');
-            modal.classList.remove('hidden'); 
-            modal.classList.add('flex'); 
-            
-            setTimeout(() => { 
-                modal.classList.remove('opacity-0'); 
-                modal.classList.add('opacity-100'); 
-                modalContent.classList.remove('scale-95'); 
-                modalContent.classList.add('scale-100'); 
-            }, 10); 
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+
+            setTimeout(() => {
+                modal.classList.remove('opacity-0');
+                modal.classList.add('opacity-100');
+                modalContent.classList.remove('scale-95');
+                modalContent.classList.add('scale-100');
+            }, 10);
         }
-        
-        function closeModal() { 
+
+        function closeModal() {
             document.body.classList.remove('modal-open');
-            modal.classList.remove('opacity-100'); 
-            modal.classList.add('opacity-0'); 
-            modalContent.classList.remove('scale-100'); 
-            modalContent.classList.add('scale-95'); 
-            
-            setTimeout(() => { 
-                modal.classList.add('hidden'); 
-                modal.classList.remove('flex'); 
-                
-                document.getElementById('leadForm').classList.remove('hidden'); 
-                document.getElementById('successMessage').classList.add('hidden'); 
-                document.getElementById('leadForm').reset(); 
-            }, 300); 
+            modal.classList.remove('opacity-100');
+            modal.classList.add('opacity-0');
+            modalContent.classList.remove('scale-100');
+            modalContent.classList.add('scale-95');
+
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                modal.classList.remove('flex');
+
+                document.getElementById('leadForm').classList.remove('hidden');
+                document.getElementById('successMessage').classList.add('hidden');
+                document.getElementById('leadForm').reset();
+            }, 300);
         }
-        
-        modal.addEventListener('click', (e) => { 
-            if (e.target === modal) closeModal(); 
+
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) closeModal();
         });
 
         // Телефонний інпут
         const phoneInput = document.querySelector("#phone");
-        const iti = window.intlTelInput(phoneInput, { 
-            utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@18.2.1/build/js/utils.js", 
-            initialCountry: "ua", 
-            preferredCountries: ["ua", "pl", "de", "us"], 
-            separateDialCode: true 
+        const iti = window.intlTelInput(phoneInput, {
+            utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@18.2.1/build/js/utils.js",
+            initialCountry: "ua",
+            preferredCountries: ["ua", "pl", "de", "us"],
+            separateDialCode: true
         });
 
         // ВІДПРАВКА ДАНИХ У ТАБЛИЦЮ ТА FACEBOOK ПІКСЕЛЬ
@@ -320,46 +513,46 @@
 
         const urlParams = new URLSearchParams(window.location.search);
         const utms = {
-            utm_source: urlParams.get('utm_source') || '', 
+            utm_source: urlParams.get('utm_source') || '',
             utm_medium: urlParams.get('utm_medium') || '',
-            utm_campaign: urlParams.get('utm_campaign') || '', 
-            utm_term: urlParams.get('utm_term') || '', 
+            utm_campaign: urlParams.get('utm_campaign') || '',
+            utm_term: urlParams.get('utm_term') || '',
             utm_content: urlParams.get('utm_content') || ''
         };
 
         document.getElementById('leadForm').addEventListener('submit', async (e) => {
             e.preventDefault();
-            
-            if (!iti.isValidNumber()) { 
-                alert("Будь ласка, введіть коректний номер телефону."); 
-                return; 
+
+            if (!iti.isValidNumber()) {
+                alert("Будь ласка, введіть коректний номер телефону.");
+                return;
             }
 
             const form = e.target;
             const submitBtn = document.getElementById('submitBtn');
             const formData = new FormData(form);
-            
+
             const data = {
                 formName: "Ефір",
-                name: formData.get('name'), 
-                phone: iti.getNumber(), 
+                name: formData.get('name'),
+                phone: iti.getNumber(),
                 telegram: formData.get('telegram'),
                 ...utms
             };
 
-            submitBtn.disabled = true; 
-            document.getElementById('btnText').textContent = 'Відправка...'; 
+            submitBtn.disabled = true;
+            document.getElementById('btnText').textContent = 'Відправка...';
             document.getElementById('btnLoader').classList.remove('hidden');
 
             try {
                 // Відправка в Google таблицю
-                await fetch(GOOGLE_SCRIPT_URL, { 
-                    method: 'POST', 
-                    mode: 'no-cors', 
-                    headers: { 'Content-Type': 'application/json' }, 
-                    body: JSON.stringify(data) 
+                await fetch(GOOGLE_SCRIPT_URL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data)
                 });
-                
+
                 // ВІДПРАВКА ПОДІЇ LEAD В FACEBOOK PIXEL
                 if (typeof fbq === 'function') {
                     fbq('track', 'Lead');
@@ -369,16 +562,21 @@
             } catch (error) {
                 alert('Сталася помилка. Спробуйте ще раз.');
             } finally {
-                submitBtn.disabled = false; 
-                document.getElementById('btnText').textContent = 'Зареєструватися'; 
+                submitBtn.disabled = false;
+                document.getElementById('btnText').textContent = 'Зареєструватися';
                 document.getElementById('btnLoader').classList.add('hidden');
             }
         });
 
-        function showSuccess() { 
-            document.getElementById('leadForm').classList.add('hidden'); 
-            document.getElementById('successMessage').classList.remove('hidden'); 
+        function showSuccess() {
+            document.getElementById('leadForm').classList.add('hidden');
+            document.getElementById('successMessage').classList.remove('hidden');
+
+            setTimeout(() => {
+                window.location.href = 'https://t.me/unguriananastasiabot?start=69a1bd9d55da76f7350345ec';
+            }, 2000);
         }
     </script>
 </body>
+
 </html>
