@@ -54,6 +54,25 @@
         #modal { backdrop-filter: blur(8px); z-index: 9999; }
         body.modal-open { overflow: hidden; }
     </style>
+
+    <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '802066355916067');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=802066355916067&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
+
 </head>
 <body class="no-scrollbar selection:bg-gold selection:text-black md:pb-0">
 
@@ -67,10 +86,8 @@
     </div>
 
     <!-- БЛОК 1: HERO -->
-    <!-- Прибрано h-svh-custom, щоб не було зайвої дірки. Використовуємо min-h і padding -->
     <header class="relative min-h-[85vh] md:min-h-[90vh] flex flex-col items-center justify-end md:justify-center pb-12 pt-24 overflow-hidden bg-[#0f1613]">
         <div class="absolute inset-0 z-0">
-            <!-- Світліше фото (opacity-70 замість 50, без mix-blend, щоб кольори були природними) -->
             <img src="IMG_0941.JPG" alt="Анастасія Унгурян" class="w-full h-full object-cover object-top opacity-70">
             <div class="absolute inset-0 hero-overlay"></div>
         </div>
@@ -95,7 +112,6 @@
                 <div class="flex items-center gap-3 text-white"><i class="fa-regular fa-clock text-gold text-xl"></i><span class="text-lg font-medium drop-shadow-md">19:00 по Києву</span></div>
             </div>
             
-            <!-- Кнопка ПК -->
             <button type="button" onclick="openModal()" class="hidden md:inline-block btn-gold animate-pulse-gold w-full sm:w-auto px-10 py-4 rounded-full text-lg font-bold uppercase tracking-wider mt-4">
                 Зареєструватися безкоштовно
             </button>
@@ -103,7 +119,6 @@
     </header>
 
     <!-- БЛОК 2: ВПІЗНАЄШ СЕБЕ -->
-    <!-- Зменшено padding зверху (pt-10 замість py-16), щоб блок був ближче до першого -->
     <section class="pt-10 pb-16 md:py-20 bg-[#0f1613] relative z-20">
         <div class="container mx-auto px-5 max-w-5xl">
             <h2 class="text-3xl md:text-5xl font-bold text-center mb-10 md:mb-12 serif-font fade-in-section">Впізнаєш <span class="text-gold italic">себе?</span></h2>
@@ -158,7 +173,6 @@
                 <p class="text-gray-300 text-base md:text-lg font-light leading-relaxed">
                     Привіт, мене звати Анастасія Унгурян. До 25 років я не знала, ким хочу бути. Декрет, післяпологова депресія. Сварки з чоловіком, шлюб на межі розлучення. Я відчувала себе нереалізованою та живу з переконанням "я не варта більшого".
                 </p>
-                <!-- Цитату видалено за запитом -->
             </div>
 
             <!-- Секція "ПІСЛЯ" -->
@@ -200,7 +214,6 @@
     <footer class="border-t border-white/5 py-8 text-center text-gray-500 text-sm pb-10 md:pb-8"><p>© 2024 Анастасія Унгурян. Всі права захищені.</p></footer>
 
     <!-- МОДАЛЬНЕ ВІКНО -->
-    <!-- Стилі display:none (hidden) змінені на міцну зв'язку для роботи JS -->
     <div id="modal" class="fixed inset-0 hidden items-center justify-center p-4 bg-black/80 transition-opacity duration-300 opacity-0">
         <div class="relative bg-[#0a1410] border border-gold/30 rounded-2xl w-full max-w-md p-6 md:p-8 shadow-2xl transform scale-95 transition-transform duration-300" id="modal-content">
             
@@ -264,7 +277,6 @@
             modal.classList.remove('hidden'); 
             modal.classList.add('flex'); 
             
-            // Затримка для анімації
             setTimeout(() => { 
                 modal.classList.remove('opacity-0'); 
                 modal.classList.add('opacity-100'); 
@@ -280,19 +292,16 @@
             modalContent.classList.remove('scale-100'); 
             modalContent.classList.add('scale-95'); 
             
-            // Ховаємо блок після завершення анімації
             setTimeout(() => { 
                 modal.classList.add('hidden'); 
                 modal.classList.remove('flex'); 
                 
-                // Скидаємо форму
                 document.getElementById('leadForm').classList.remove('hidden'); 
                 document.getElementById('successMessage').classList.add('hidden'); 
                 document.getElementById('leadForm').reset(); 
             }, 300); 
         }
         
-        // Закриття по кліку на темний фон
         modal.addEventListener('click', (e) => { 
             if (e.target === modal) closeModal(); 
         });
@@ -306,7 +315,7 @@
             separateDialCode: true 
         });
 
-        // ВІДПРАВКА ДАНИХ У ТАБЛИЦЮ
+        // ВІДПРАВКА ДАНИХ У ТАБЛИЦЮ ТА FACEBOOK ПІКСЕЛЬ
         const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwGypKDfaWyOB0qN8lv1tiqs37sw16-7sHn2SOV3VerLC1e2PG39F5Vo0pWpEAinOnwlg/exec';
 
         const urlParams = new URLSearchParams(window.location.search);
@@ -343,12 +352,19 @@
             document.getElementById('btnLoader').classList.remove('hidden');
 
             try {
+                // Відправка в Google таблицю
                 await fetch(GOOGLE_SCRIPT_URL, { 
                     method: 'POST', 
                     mode: 'no-cors', 
                     headers: { 'Content-Type': 'application/json' }, 
                     body: JSON.stringify(data) 
                 });
+                
+                // ВІДПРАВКА ПОДІЇ LEAD В FACEBOOK PIXEL
+                if (typeof fbq === 'function') {
+                    fbq('track', 'Lead');
+                }
+
                 showSuccess();
             } catch (error) {
                 alert('Сталася помилка. Спробуйте ще раз.');
@@ -366,4 +382,3 @@
     </script>
 </body>
 </html>
-
