@@ -147,6 +147,32 @@
         body.modal-open {
             overflow: hidden;
         }
+
+        /* Помилки форми */
+        @keyframes shake {
+
+            0%,
+            100% {
+                transform: translateX(0);
+            }
+
+            25% {
+                transform: translateX(-5px);
+            }
+
+            50% {
+                transform: translateX(5px);
+            }
+
+            75% {
+                transform: translateX(-5px);
+            }
+        }
+
+        .input-error {
+            border-color: #ef4444 !important;
+            animation: shake 0.5s ease-in-out;
+        }
     </style>
 
     <!-- Meta Pixel Code -->
@@ -154,7 +180,7 @@
         !function (f, b, e, v, n, t, s) {
             if (f.fbq) return; n = f.fbq = function () {
                 n.callMethod ?
-                n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+                    n.callMethod.apply(n, arguments) : n.queue.push(arguments)
             };
             if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
             n.queue = []; t = b.createElement(e); t.async = !0;
@@ -229,7 +255,8 @@
     <section class="pt-10 pb-16 md:py-20 bg-[#0f1613] relative z-20">
         <div class="container mx-auto px-5 max-w-5xl">
             <h2 class="text-3xl md:text-5xl font-bold text-center mb-10 md:mb-12 serif-font fade-in-section">Впізнаєш
-                <span class="text-gold italic">себе?</span></h2>
+                <span class="text-gold italic">себе?</span>
+            </h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mb-12">
                 <div class="glow-card p-6 md:p-8 fade-in-section"><i
                         class="fa-solid fa-person-walking-arrow-loop-left text-3xl text-gold mb-4 opacity-80"></i>
@@ -266,7 +293,8 @@
                 class="text-center max-w-3xl mx-auto p-6 md:p-8 border border-gold/30 rounded-2xl bg-gold/5 fade-in-section">
                 <p class="text-lg md:text-2xl text-gray-100 font-light leading-relaxed">Це не слабкість і не лінь. Це
                     <strong class="text-gold font-medium">сценарії</strong>, які колись давали тобі безпеку. Але зараз
-                    тримають на місці.</p>
+                    тримають на місці.
+                </p>
             </div>
         </div>
     </section>
@@ -276,7 +304,8 @@
         <div class="absolute top-0 right-0 w-96 h-96 bg-gold/5 rounded-full blur-[100px] pointer-events-none"></div>
         <div class="container mx-auto px-5 max-w-4xl relative z-10">
             <h2 class="text-3xl md:text-5xl font-bold text-center mb-4 md:mb-6 serif-font fade-in-section">На ефірі
-                <span class="text-gold italic">розберемо</span></h2>
+                <span class="text-gold italic">розберемо</span>
+            </h2>
             <p class="text-center text-gray-400 mb-12 md:mb-16 text-base md:text-lg fade-in-section">Тут не буде
                 езотерики та «потоків». Тільки практика, логіка і чесна розмова.</p>
 
@@ -380,7 +409,8 @@
     <section class="py-16 md:py-24 relative bg-gradient-to-t from-[#0f1613] to-[#141d19]">
         <div class="container mx-auto px-5 max-w-4xl text-center fade-in-section">
             <div class="inline-flex items-center justify-center w-16 h-16 md:w-20 md:h-20 rounded-full bg-gold/10 mb-6">
-                <i class="fa-solid fa-gift text-3xl md:text-4xl text-gold"></i></div>
+                <i class="fa-solid fa-gift text-3xl md:text-4xl text-gold"></i>
+            </div>
             <h2 class="text-3xl md:text-5xl font-bold mb-4 md:mb-6 serif-font">Всі учасниці отримають <span
                     class="text-gold italic">бонус</span></h2>
             <p class="text-lg md:text-2xl text-gray-200 mb-8 font-light">Практика <strong
@@ -411,11 +441,16 @@
                 <i class="fa-solid fa-xmark text-2xl"></i>
             </button>
 
-            <h3 class="text-xl md:text-2xl font-bold text-center mb-2 serif-font">Реєстрація на ефір</h3>
-            <p class="text-gray-400 text-center mb-6 text-xs md:text-sm">Заповніть форму нижче, щоб отримати посилання
+            <h3 id="modalTitle" class="text-xl md:text-2xl font-bold text-center mb-2 serif-font">Реєстрація на ефір
+            </h3>
+            <p id="modalSubtitle" class="text-gray-400 text-center mb-6 text-xs md:text-sm">Заповніть форму нижче, щоб
+                отримати посилання
                 на трансляцію</p>
 
             <form id="leadForm" class="space-y-4">
+                <div id="formError"
+                    class="hidden bg-red-900/40 border border-red-500 text-white px-4 py-3 rounded-xl text-center text-sm font-medium transition-all duration-300">
+                </div>
                 <div>
                     <label class="block text-sm text-gray-300 mb-1 ml-1">Ваше ім'я</label>
                     <input type="text" name="name" required placeholder="Анастасія" class="form-input">
@@ -423,10 +458,6 @@
                 <div>
                     <label class="block text-sm text-gray-300 mb-1 ml-1">Номер телефону</label>
                     <input type="tel" id="phone" name="phone" required class="form-input">
-                </div>
-                <div>
-                    <label class="block text-sm text-gray-300 mb-1 ml-1">Нік у Telegram (починається з @)</label>
-                    <input type="text" name="telegram" required placeholder="@nickname" class="form-input">
                 </div>
                 <button type="submit" id="submitBtn"
                     class="btn-gold w-full py-4 rounded-xl text-sm md:text-base font-bold uppercase tracking-wider mt-4 flex justify-center items-center">
@@ -491,7 +522,13 @@
 
                 document.getElementById('leadForm').classList.remove('hidden');
                 document.getElementById('successMessage').classList.add('hidden');
+                document.getElementById('modalTitle').classList.remove('hidden');
+                document.getElementById('modalSubtitle').classList.remove('hidden');
                 document.getElementById('leadForm').reset();
+
+                // Reset errors
+                document.getElementById('formError').classList.add('hidden');
+                document.getElementById('phone').classList.remove('input-error');
             }, 300);
         }
 
@@ -523,8 +560,23 @@
         document.getElementById('leadForm').addEventListener('submit', async (e) => {
             e.preventDefault();
 
+            const phoneInputEl = document.getElementById('phone');
+            const errorDiv = document.getElementById('formError');
+
+            // Clean up previous errors
+            phoneInputEl.classList.remove('input-error');
+            errorDiv.classList.add('hidden');
+
             if (!iti.isValidNumber()) {
-                alert("Будь ласка, введіть коректний номер телефону.");
+                phoneInputEl.classList.add('input-error');
+                errorDiv.innerHTML = '<i class="fa-solid fa-circle-exclamation mr-2"></i>Будь ласка, введіть коректний номер телефону.';
+                errorDiv.classList.remove('hidden');
+
+                // Auto hide error after 3 seconds
+                setTimeout(() => {
+                    phoneInputEl.classList.remove('input-error');
+                    errorDiv.classList.add('hidden');
+                }, 3500);
                 return;
             }
 
@@ -536,7 +588,6 @@
                 formName: "Ефір",
                 name: formData.get('name'),
                 phone: iti.getNumber(),
-                telegram: formData.get('telegram'),
                 ...utms
             };
 
@@ -560,7 +611,9 @@
 
                 showSuccess();
             } catch (error) {
-                alert('Сталася помилка. Спробуйте ще раз.');
+                errorDiv.innerHTML = '<i class="fa-solid fa-circle-exclamation mr-2"></i>Сталася помилка. Спробуйте ще раз.';
+                errorDiv.classList.remove('hidden');
+                setTimeout(() => { errorDiv.classList.add('hidden'); }, 4000);
             } finally {
                 submitBtn.disabled = false;
                 document.getElementById('btnText').textContent = 'Зареєструватися';
@@ -570,6 +623,8 @@
 
         function showSuccess() {
             document.getElementById('leadForm').classList.add('hidden');
+            document.getElementById('modalTitle').classList.add('hidden');
+            document.getElementById('modalSubtitle').classList.add('hidden');
             document.getElementById('successMessage').classList.remove('hidden');
 
             setTimeout(() => {
